@@ -2,6 +2,12 @@
 
 A pixel-perfect replica of Axiom Trade's token discovery table built with Next.js 14, TypeScript, and Tailwind CSS.
 
+## 🌐 Live Demo
+
+**🚀 [View Live Application](https://token-trading-table-snowy.vercel.app/)**
+
+**📂 [GitHub Repository](https://github.com/mayank123hangsh00/token-trading-table)**
+
 ## 🚀 Features
 
 ### Core Functionality
@@ -33,7 +39,7 @@ A pixel-perfect replica of Axiom Trade's token discovery table built with Next.j
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/mayank123hangsh00/token-trading-table.git
 cd token-trading-table
 
 # Install dependencies
@@ -181,7 +187,7 @@ vercel
 
 Or connect your GitHub repository to Vercel for automatic deployments.
 
-**Live Demo**: [Your Vercel URL]
+**Live Demo**: https://token-trading-table-snowy.vercel.app/
 
 ## 📸 Screenshots
 
