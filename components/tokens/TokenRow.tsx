@@ -15,6 +15,7 @@ interface TokenRowProps {
 
 export const TokenRow = memo(function TokenRow({ token, onSelect }: TokenRowProps) {
     const [priceColor, setPriceColor] = React.useState<string>('')
+    const [imageError, setImageError] = React.useState(false)
 
     React.useEffect(() => {
         // Animate price changes with color transitions
@@ -28,18 +29,36 @@ export const TokenRow = memo(function TokenRow({ token, onSelect }: TokenRowProp
         return () => clearTimeout(timeout)
     }, [token.price, token.priceChange24h])
 
+    // Get color based on token name for fallback
+    const getTokenColor = (name: string) => {
+        const colors = ['bg-blue-600', 'bg-purple-600', 'bg-pink-600', 'bg-green-600', 'bg-yellow-600', 'bg-red-600']
+        const index = name.charCodeAt(0) % colors.length
+        return colors[index]
+    }
+
     return (
         <div className="group relative flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-4 rounded-lg bg-gray-900/30 hover:bg-gray-800/50 transition-all duration-200 border border-gray-800/50 hover:border-gray-700">
             {/* Token Info */}
             <div className="flex items-center gap-3 w-full sm:min-w-[200px]">
                 <div className="relative flex-shrink-0">
-                    <Image
-                        src={token.logo}
-                        alt={token.name}
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                    />
+                    {!imageError ? (
+                        <Image
+                            src={token.logo}
+                            alt={token.name}
+                            width={40}
+                            height={40}
+                            className="rounded-full"
+                            unoptimized
+                            onError={() => setImageError(true)}
+                        />
+                    ) : (
+                        <div className={cn(
+                            "w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg",
+                            getTokenColor(token.name)
+                        )}>
+                            {token.symbol.charAt(0)}
+                        </div>
+                    )}
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
