@@ -171,7 +171,9 @@ No environment variables required for the demo. All data is mocked locally.
 
 ## 🎥 Demo Video
 
-[Link to YouTube demo video - 1-2 minutes]
+**[Watch Demo on YouTube](https://youtu.be/xppjf3_Sabg)** (1-2 minutes)
+
+See the application in action with all features demonstrated including real-time updates, sorting, filtering, and responsive design.
 
 ## 🚀 Deployment
 
